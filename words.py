@@ -21,7 +21,7 @@ while guess != "":
 		if ch[0] not in place_chs:
 			place_chs.append(ch[0])
 	for ch in guess:
-		if ch not in cnt and ch not in place and ch not in places and ch not in place_chs:
+		if ch not in contains and ch not in place_chs:
 			not_pos.append(ch)
 	
 	pos = []
@@ -37,9 +37,11 @@ while guess != "":
 		for ch in places:
 			if ch[0] != word[ch[1]-1]:
 				leave = True
+				break
 		for ch in not_pos:
 			if ch in word:
 				leave = True
+				break
 		if leave:
 			continue
 		pos.append(word)
